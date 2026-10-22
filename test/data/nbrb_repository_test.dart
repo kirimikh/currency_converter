@@ -32,16 +32,22 @@ void main() {
   test('parses USD and RUB from an NBRB response', () async {
     final repository = repositoryReturning(sampleJson, 200);
     final currencies = await repository.fetchRates();
-    expect(currencies.length, 2);
-    expect(currencies[0].code, 'USD');
-    expect(currencies[0].scale, 1);
-    expect(currencies[0].name, 'Доллар США');
-    expect(currencies[0].rate, Decimal.parse('2.995'));
+    expect(currencies.length, 3);
 
-    expect(currencies[1].code, 'RUB');
-    expect(currencies[1].scale, 100);
-    expect(currencies[1].name, 'Российских рублей');
-    expect(currencies[1].rate, Decimal.parse('3.6127'));
+    expect(currencies[0].code, 'BYN');
+    expect(currencies[0].scale, 1);
+    expect(currencies[0].name, 'Белорусский рубль');
+    expect(currencies[0].rate, Decimal.one);
+
+    expect(currencies[1].code, 'USD');
+    expect(currencies[1].scale, 1);
+    expect(currencies[1].name, 'Доллар США');
+    expect(currencies[1].rate, Decimal.parse('2.995'));
+
+    expect(currencies[2].code, 'RUB');
+    expect(currencies[2].scale, 100);
+    expect(currencies[2].name, 'Российских рублей');
+    expect(currencies[2].rate, Decimal.parse('3.6127'));
   });
   test('throws on status 500', () {
     final repository = repositoryReturning('', 500);

@@ -21,7 +21,10 @@ class NbrbRepository {
 
       if (response.statusCode == 200) {
         final List<dynamic> jsonResponse = json.decode(response.body);
-        return jsonResponse.map((item) => _parseCurrency(item)).toList();
+        return [
+          Currency.byn,
+          ...jsonResponse.map((item) => _parseCurrency(item)),
+        ];
       } else {
         throw RatesException.badStatus(response.statusCode);
       }

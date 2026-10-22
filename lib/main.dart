@@ -1,20 +1,22 @@
+import 'package:currency_converter/data/nbrb_repository.dart';
+import 'package:currency_converter/ui/converter_screen.dart';
+import 'package:currency_converter/ui/converter_state.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
-  runApp(const MainApp());
-}
+  final state = ConverterState(NbrbRepository(http.Client()));
+  state.load();
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+  runApp(
+    MaterialApp(
+      title: 'Конвертер валют',
+      theme: ThemeData(colorSchemeSeed: Colors.blue),
+      darkTheme: ThemeData(
+        colorSchemeSeed: Colors.blue,
+        brightness: Brightness.dark,
       ),
-    );
-  }
+      home: ConverterScreen(state: state),
+    ),
+  );
 }

@@ -1,11 +1,11 @@
 {
-    "name": "currency_converter",
-    "short_name": "currency_converter",
+    "name": "Конвертер валют",
+    "short_name": "Конвертер",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "Currency converter based on official National Bank of Belarus exchange rates",
+    "background_color": "#163E96",
+    "theme_color": "#163E96",
+    "description": "Конвертер валют по официальным курсам Национального банка Беларуси",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

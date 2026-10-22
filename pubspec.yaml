@@ -1,7 +1,7 @@
 name: currency_converter
 description: "Currency converter based on official National Bank of Belarus exchange rates"
-publish_to: 'none'
-version: 0.1.0+1
+publish_to: "none"
+version: 1.0.0+1
 
 environment:
   sdk: ^3.11.4
